@@ -23,12 +23,16 @@ type DaemonOption struct {
 	RunCallback func()
 }
 
-func NewDaemon(opt DaemonOption) (d *Daemon, err error) {
+func NewDaemon(opt DaemonOption, username ...string) (d *Daemon, err error) {
 	config := &service.Config{
 		Name:        opt.Name,        //服务显示名称
 		DisplayName: opt.DisplayName, //服务名称
 		Description: opt.Description, //服务描述
 	}
+	if len(username) > 0 {
+		config.UserName = username[0]
+	}
+
 	if opt.Logger == nil {
 		opt.Logger, _ = zap.NewDevelopment()
 	}

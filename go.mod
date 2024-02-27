@@ -1,6 +1,6 @@
 module daemore
 
-go 1.21.6
+go 1.18
 
 require (
 	github.com/kardianos/service v1.2.2
