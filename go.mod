@@ -1,4 +1,4 @@
-module daemore
+module github.com/mnt-ltd/daemore
 
 go 1.18
 
